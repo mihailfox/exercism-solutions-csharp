@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwoFer", "two-fer\TwoFer.cs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWorld", "hello-world\HelloWorld.csproj", "{56362A47-A660-408E-8A72-F6B2F96A9719}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Strain", "strain\Strain.csproj", "{96B929BD-3851-43A1-BE23-261E6685F885}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{56362A47-A660-408E-8A72-F6B2F96A9719}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56362A47-A660-408E-8A72-F6B2F96A9719}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56362A47-A660-408E-8A72-F6B2F96A9719}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96B929BD-3851-43A1-BE23-261E6685F885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B929BD-3851-43A1-BE23-261E6685F885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B929BD-3851-43A1-BE23-261E6685F885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96B929BD-3851-43A1-BE23-261E6685F885}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
