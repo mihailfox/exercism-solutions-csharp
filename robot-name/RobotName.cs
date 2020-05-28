@@ -16,7 +16,7 @@ public class Robot
     private static string GenerateName()
     {
         var randomCode = new StringBuilder();
-        var output = "";
+        var output = string.Empty;
         do
         {
             randomCode
@@ -48,10 +48,10 @@ public class Robot
         return randomLetter;
     }
 
-    private static string RandomNumber(int start = 100, int end = 1000)
+    private static int RandomNumber(int start = 100, int end = 1000)
     {
         var randomNumber = random.Next(start, end);
 
-        return randomNumber.ToString();
+        return randomNumber;
     }
 }
