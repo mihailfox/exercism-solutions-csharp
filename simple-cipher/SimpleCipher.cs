@@ -1,76 +1,54 @@
 using System;
-using System.Text;
+using System.Linq;
 
 public class SimpleCipher
 {
-    private static int BaseCharacter { get; } = 32;
-    private static int TopCharacter { get; } = 255;
-    private const int CharShift = 3;
+    private const string _alphabet = "abcdefghijklmnopqrstuvwxyz";
 
     public SimpleCipher()
     {
+        Key = _alphabet;
     }
 
-    public SimpleCipher(string key) => Key = key;
-
-    public string Key { get; set; } = "";
-
-    public string Encode(string plaintext)
+    public SimpleCipher(string key)
     {
-        if (string.IsNullOrWhiteSpace(plaintext))
-        {
-            Console.WriteLine("Input string is not valid!");
-            throw new ArgumentException();
-        }
-
-        var output = new StringBuilder();
-        foreach (var inputChar in plaintext)
-        {
-            output.Append(EncodeCharacter(inputChar, CharShift));
-        }
-        return output.ToString();
+        Key = key;
     }
+
+    public string Key { get; }
 
     public string Decode(string ciphertext)
     {
-        if (string.IsNullOrWhiteSpace(ciphertext))
-        {
-            throw new ArgumentException("Input string is not valid!");
-        }
-
-        var output = new StringBuilder();
-        foreach (var inputChar in ciphertext)
-        {
-            output.Append(EncodeCharacter(inputChar, -CharShift));
-        }
-        return output.ToString();
+        return new string(ciphertext.Select(Decode).ToArray());
     }
 
-    private static char EncodeCharacter(char input, int shift)
+    public string Encode(string plaintext)
     {
-        if (!IsPrintableChar(input))
-        {
-            return input;
-        }
-
-        var output = (char)(Mod(input + shift - BaseCharacter, TopCharacter - BaseCharacter + 1) + BaseCharacter);
-        return output;
+        return new string(plaintext.Select(Encode).ToArray());
     }
 
-    private static bool IsPrintableChar(char input)
+    private char Decode(char character, int index)
     {
-        return input >= BaseCharacter || input < TopCharacter;
+        return ToChar((ToInteger(character) - KeyValue(index) + _alphabet.Length) % _alphabet.Length);
     }
 
-    private static int Mod(int dividend, int divisor)
+    private char Encode(char character, int index)
     {
-        if (divisor == 0)
-        {
-            return divisor;
-        }
+        return ToChar((ToInteger(character) + KeyValue(index)) % _alphabet.Length);
+    }
 
-        var remainder = dividend % divisor;
+    private int ToInteger(char character)
+    {
+        return character - _alphabet[0];
+    }
 
-        return remainder < 0 ? remainder + divisor : remainder;
+    private char ToChar(int number)
+    {
+        return Convert.ToChar(number + _alphabet[0]);
+    }
+
+    private int KeyValue(int index)
+    {
+        return ToInteger(Key[index % Key.Length]);
     }
 }
