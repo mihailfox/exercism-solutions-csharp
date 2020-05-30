@@ -11,7 +11,6 @@ public static class PerfectNumbers
 {
     public static Classification Classify(int number)
     {
-        
         if (number <= 0)
         {
             throw new ArgumentOutOfRangeException("number", "not a natural number");
@@ -35,7 +34,9 @@ public static class PerfectNumbers
         {
             return Classification.Abundant;
         }
-
-        return Classification.Deficient;
+        else
+        {
+            return Classification.Deficient;
+        }
     }
 }
