@@ -4,31 +4,40 @@ using System.Text;
 
 public class Robot
 {
-    private static readonly Random random = new Random();
-    private static readonly List<string> _previousNames = new List<string>();
+    // maximum number of robot names for exercise format LLDDD = 26 * 26 * 10 * 10 * 10
+    private const int maxRobots = 676_000;
 
-    public Robot() => Name = GenerateName();
+    private const string numberFormat = "{0:000}";
+    private static readonly List<string> usedNames = new List<string>();
+    private static readonly Random random = new Random();
 
     public string Name { get; private set; }
+
+    public Robot() => Name = GenerateName();
 
     public void Reset() => Name = GenerateName();
 
     private static string GenerateName()
     {
-        const string numberFormat = "{0:000}";
-        var randomCode = new StringBuilder();
-        var output = string.Empty;
+        if (usedNames.Count == maxRobots)
+        {
+            throw new MaximumNumberOfRobotsException("You have generated the maximum number of robot names",
+                usedNames[^1]);
+        }
 
+        var randomName = new StringBuilder();
+
+        var output = string.Empty;
         do
         {
-            randomCode
+            randomName
                 .Append(RandomString())
                 .AppendFormat(numberFormat, RandomNumber());
 
-            output = randomCode.ToString();
-        } while (_previousNames.Contains(output));
+            output = randomName.ToString();
+        } while (usedNames.Contains(output));
 
-        _previousNames.Add(output);
+        usedNames.Add(output);
         return output;
     }
 
@@ -50,7 +59,7 @@ public class Robot
         return randomLetter;
     }
 
-    private static int RandomNumber(int start = 1, int end = 999)
+    private static int RandomNumber(int start = 0, int end = 999)
     {
         var randomNumber = random.Next(start, end);
 
