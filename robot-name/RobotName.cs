@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Diagnostics;
 
 public class Robot
 {
     // maximum number of robot names for exercise format LLDDD = 26 * 26 * 10 * 10 * 10
-    private const int maxRobots = 676_000;
+    private const int MaxRobots = 676_000;
 
-    private const string numberFormat = "{0:000}";
+    private const string NumberFormat = "000";
     private static readonly List<string> usedNames = new List<string>();
     private static readonly Random random = new Random();
 
@@ -19,37 +19,31 @@ public class Robot
 
     private static string GenerateName()
     {
-        if (usedNames.Count == maxRobots)
+        if (usedNames.Count == MaxRobots)
         {
             throw new MaximumNumberOfRobotsReachedException("You have generated the maximum number of robot names",
                 usedNames[^1]);
         }
 
-        var randomName = new StringBuilder();
-
-        var output = string.Empty;
+        var randomName = string.Empty;
         do
         {
-            randomName
-                .Append(RandomString())
-                .AppendFormat(numberFormat, RandomNumber());
+            randomName = $"{RandomString()}{RandomNumber().ToString(NumberFormat)}";
+        } while (usedNames.Contains(randomName));
 
-            output = randomName.ToString();
-        } while (usedNames.Contains(output));
-
-        usedNames.Add(output);
-        return output;
+        usedNames.Add(randomName);
+        return randomName;
     }
 
     private static string RandomString(int length = 2)
     {
-        var randomString = new StringBuilder();
+        var randomString = string.Empty;
         for (var i = 0; i < length; i++)
         {
-            randomString.Append(RandomLetter());
+            randomString += RandomLetter();
         }
 
-        return randomString.ToString();
+        return randomString;
     }
 
     private static char RandomLetter(bool lowerCase = false)
@@ -59,7 +53,7 @@ public class Robot
         return randomLetter;
     }
 
-    private static int RandomNumber(int start = 0, int end = 999)
+    private static int RandomNumber(int start = 0, int end = 1000)
     {
         var randomNumber = random.Next(start, end);
 
