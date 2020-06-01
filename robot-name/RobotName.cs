@@ -15,13 +15,15 @@ public class Robot
 
     private static string GenerateName()
     {
+        const string numberFormat = "{0:000}";
         var randomCode = new StringBuilder();
         var output = string.Empty;
+
         do
         {
             randomCode
                 .Append(RandomString())
-                .Append(RandomNumber());
+                .AppendFormat(numberFormat, RandomNumber());
 
             output = randomCode.ToString();
         } while (_previousNames.Contains(output));
@@ -33,7 +35,7 @@ public class Robot
     private static string RandomString(int length = 2)
     {
         var randomString = new StringBuilder();
-        for (int i = 0; i < length; i++)
+        for (var i = 0; i < length; i++)
         {
             randomString.Append(RandomLetter());
         }
@@ -48,7 +50,7 @@ public class Robot
         return randomLetter;
     }
 
-    private static int RandomNumber(int start = 100, int end = 1000)
+    private static int RandomNumber(int start = 1, int end = 999)
     {
         var randomNumber = random.Next(start, end);
 
