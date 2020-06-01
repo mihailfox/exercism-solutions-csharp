@@ -21,7 +21,7 @@ public class Robot
     {
         if (usedNames.Count == maxRobots)
         {
-            throw new MaximumNumberOfRobotsException("You have generated the maximum number of robot names",
+            throw new MaximumNumberOfRobotsReachedException("You have generated the maximum number of robot names",
                 usedNames[^1]);
         }
 
