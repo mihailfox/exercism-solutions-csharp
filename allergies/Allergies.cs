@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 
+[Flags]
 public enum Allergen
 {
     Eggs = 1,
@@ -14,17 +16,27 @@ public enum Allergen
 
 public class Allergies
 {
+    private readonly Allergen _mask;
+
     public Allergies(int mask)
     {
+        _mask = (Allergen)mask;
     }
 
-    public bool IsAllergicTo(Allergen allergen)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    public bool IsAllergicTo(Allergen allergen) => (allergen & _mask) == allergen;
 
     public Allergen[] List()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        List<Allergen> allergenList = new List<Allergen>();
+
+        foreach (Allergen allergen in Enum.GetValues(typeof(Allergen)))
+        {
+            if (IsAllergicTo(allergen))
+            {
+                allergenList.Add(allergen);
+            }
+        }
+
+        return allergenList.ToArray();
     }
 }
