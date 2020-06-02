@@ -1,32 +1,37 @@
 public class SpaceAge
 {
-    private readonly int _seconds;
-    
-    private const double _earth_orbital_period = 31_557_600;
-    private const double _mercury_offset = 0.2408467;
-    private const double _venus_offset = 0.61519726;
-    private const double _mars_offset = 1.8808158;
-    private const double _jupiter_offset = 11.862615;
-    private const double _saturn_offset = 29.447498;
-    private const double _uranus_offset = 84.016846;
-    private const double _neptune_offset = 164.79132;
+    private readonly int Seconds;
 
-    private double _on_earth;
+    private const double EarthOrbitalPeriod = 31_557_600;
+    private const double MercuryOffset = 0.2408467;
+    private const double VenusOffset = 0.61519726;
+    private const double MarsOffset = 1.8808158;
+    private const double JupiterOffset = 11.862615;
+    private const double SaturnOffset = 29.447498;
+    private const double UranusOffset = 84.016846;
+    private const double NeptuneOffset = 164.79132;
+
+    private readonly double EarthAge;
 
     public SpaceAge(int seconds)
     {
-        _seconds = seconds;
-        _on_earth = _seconds / _earth_orbital_period;
+        Seconds = seconds;
+        EarthAge = Seconds / EarthOrbitalPeriod;
     }
 
-    public double OnEarth() => _on_earth;
+    public double OnEarth() => EarthAge;
 
-    public double OnMercury() => _on_earth / _mercury_offset;
-    public double OnVenus() => _on_earth / _venus_offset;
-    public double OnMars() => _on_earth / _mars_offset;
-    public double OnJupiter() => _on_earth / _jupiter_offset;
-    public double OnSaturn() => _on_earth / _saturn_offset;
-    public double OnUranus() => _on_earth / _uranus_offset;
-    public double OnNeptune() => _on_earth / _neptune_offset;
+    public double OnMercury() => EarthAge / MercuryOffset;
 
+    public double OnVenus() => EarthAge / VenusOffset;
+
+    public double OnMars() => EarthAge / MarsOffset;
+
+    public double OnJupiter() => EarthAge / JupiterOffset;
+
+    public double OnSaturn() => EarthAge / SaturnOffset;
+
+    public double OnUranus() => EarthAge / UranusOffset;
+
+    public double OnNeptune() => EarthAge / NeptuneOffset;
 }

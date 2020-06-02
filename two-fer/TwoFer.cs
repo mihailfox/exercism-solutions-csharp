@@ -2,11 +2,9 @@
 
 public static class TwoFer
 {
-    // In order to get the tests running, first you need to make sure the Speak method 
+    // In order to get the tests running, first you need to make sure the Speak method
     // can be called both without any arguments and also by passing one string argument.
-    public static string Speak(string aName = "you")
-    {
-        string message = $"One for {aName}, one for me.";
-        return message;
-    }
+    public static string Speak(string name) => $"One for {name}, one for me.";
+
+    public static string Speak() => "One for you, one for me.";
 }

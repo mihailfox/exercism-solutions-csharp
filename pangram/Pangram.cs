@@ -17,7 +17,7 @@ public static class Pangram
 
             foreach (char s in alphabet)
             {
-                if (input.ToLower().Contains(s))
+                if (input.ToLowerInvariant().Contains(s))
                 {
                     charsFound++;
                 }

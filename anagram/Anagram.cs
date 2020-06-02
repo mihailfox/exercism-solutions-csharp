@@ -26,15 +26,15 @@ public class Anagram
         return anagrams.ToArray();
     }
 
-    private bool IsAnagram(string inputOne, string inputTwo)
+    private static bool IsAnagram(string inputOne, string inputTwo)
     {
         if (string.Equals(inputOne, inputTwo, StringComparison.OrdinalIgnoreCase))
         {
             return false;
         }
 
-        var sortedOne = string.Concat(inputOne.ToLower().OrderBy(c => c));
-        var sortedTwo = string.Concat(inputTwo.ToLower().OrderBy(c => c));
+        var sortedOne = string.Concat(inputOne.ToLowerInvariant().OrderBy(c => c));
+        var sortedTwo = string.Concat(inputTwo.ToLowerInvariant().OrderBy(c => c));
 
         return sortedOne == sortedTwo;
     }
