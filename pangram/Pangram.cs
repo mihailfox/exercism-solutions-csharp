@@ -7,7 +7,7 @@ public static class Pangram
     {
         const string alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-        if (string.IsNullOrEmpty(input) | string.IsNullOrWhiteSpace(input))
+        if (string.IsNullOrWhiteSpace(input))
         {
             return false;
         }
@@ -22,12 +22,11 @@ public static class Pangram
                     charsFound++;
                 }
             }
-            if (charsFound >= alphabet.Length )
+            if (charsFound >= alphabet.Length)
             {
                 return true;
             }
         }
         return false;
-
     }
 }
