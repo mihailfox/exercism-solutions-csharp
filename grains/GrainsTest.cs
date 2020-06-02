@@ -70,6 +70,4 @@ public class GrainsTest
     {
         Assert.Equal(18446744073709551615UL, Grains.Total());
     }
-
-
 }

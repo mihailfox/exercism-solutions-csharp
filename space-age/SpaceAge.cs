@@ -1,7 +1,5 @@
 public class SpaceAge
 {
-    private readonly int Seconds;
-
     private const double EarthOrbitalPeriod = 31_557_600;
     private const double MercuryOffset = 0.2408467;
     private const double VenusOffset = 0.61519726;
@@ -13,11 +11,7 @@ public class SpaceAge
 
     private readonly double EarthAge;
 
-    public SpaceAge(int seconds)
-    {
-        Seconds = seconds;
-        EarthAge = Seconds / EarthOrbitalPeriod;
-    }
+    public SpaceAge(int seconds) => EarthAge = seconds / EarthOrbitalPeriod;
 
     public double OnEarth() => EarthAge;
 

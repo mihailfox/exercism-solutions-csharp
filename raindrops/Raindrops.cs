@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text;
 
 public static class Raindrops
 {
@@ -12,17 +13,18 @@ public static class Raindrops
         };
 
         var factors = GetFactors(number);
-        var output = string.Empty;
+        var strBld = new StringBuilder();
 
         foreach (var factor in factors)
         {
             if (raindrops.ContainsKey(factor))
             {
-                output += raindrops[factor];
+                strBld.Append(raindrops[factor]);
             }
         }
 
-        return string.IsNullOrEmpty(output) ? number.ToString() : output;
+        var output = strBld.ToString();
+        return string.IsNullOrWhiteSpace(output) ? number.ToString() : output;
     }
 
     private static List<int> GetFactors(int number)

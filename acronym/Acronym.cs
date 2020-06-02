@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 public static class Acronym
 {
@@ -10,15 +11,14 @@ public static class Acronym
         }
         else
         {
-            string result = "";
+            var strBld = new StringBuilder();
 
-            var tempString = phrase.Split(new string[] { " ", "-", "_", "," }, StringSplitOptions.RemoveEmptyEntries);
-
-            foreach (string s in tempString)
+            var tempString = phrase.Split(new[] { " ", "-", "_", "," }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var s in tempString)
             {
-                result += s.ToUpperInvariant().Substring(0, 1);
+                strBld.Append(s.ToUpperInvariant(), 0, 1);
             }
-            return result;
+            return strBld.ToString();
         }
     }
 }

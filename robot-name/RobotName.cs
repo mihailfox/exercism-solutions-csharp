@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Text;
 
 public class Robot
 {
@@ -37,13 +37,13 @@ public class Robot
 
     private static string RandomString(int length = 2)
     {
-        var randomString = string.Empty;
+        var strBld = new StringBuilder();
         for (var i = 0; i < length; i++)
         {
-            randomString += RandomLetter();
+            strBld.Append(RandomLetter());
         }
 
-        return randomString;
+        return strBld.ToString();
     }
 
     private static char RandomLetter(bool lowerCase = false)
