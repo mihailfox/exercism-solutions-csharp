@@ -13,19 +13,17 @@ public static class PerfectNumbers
     {
         if (number <= 0)
         {
-            throw new ArgumentOutOfRangeException("number", "not a natural number");
-        }
-        number = Convert.ToInt32(number);
-        int divisorSum = 0;
-
-        for (int i = 1; i < number; i++)
-        {
-            if (number % i == 0)
-            {
-                divisorSum += i;
-            }
+            throw new ArgumentOutOfRangeException(nameof(number), "not a natural number");
         }
 
+        var divisorSum = AddDivisors(number);
+
+        var classification = GetClassification(number, divisorSum);
+        return classification;
+    }
+
+    private static Classification GetClassification(int number, int divisorSum)
+    {
         if (divisorSum == number)
         {
             return Classification.Perfect;
@@ -38,5 +36,19 @@ public static class PerfectNumbers
         {
             return Classification.Deficient;
         }
+    }
+
+    private static int AddDivisors(int number)
+    {
+        var divisorSum = 0;
+        for (var i = 1; i < number; i++)
+        {
+            if (number % i == 0)
+            {
+                divisorSum += i;
+            }
+        }
+
+        return divisorSum;
     }
 }

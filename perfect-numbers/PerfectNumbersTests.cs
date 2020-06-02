@@ -3,7 +3,7 @@
 using System;
 using Xunit;
 
-public class PerfectNumbersTest
+public class PerfectNumbersTests
 {
     [Fact]
     public void Smallest_perfect_number_is_classified_correctly()
