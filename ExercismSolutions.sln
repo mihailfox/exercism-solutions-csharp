@@ -51,6 +51,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allergies", "allergies\Alle
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anagram", "anagram\Anagram.csproj", "{6E8CBBA7-9B8E-4201-B3D7-A83E8AD748FE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GradeSchool", "grade-school\GradeSchool.csproj", "{7D70CB18-DAA5-4B0E-9A32-5F3A7239D3FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{6E8CBBA7-9B8E-4201-B3D7-A83E8AD748FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E8CBBA7-9B8E-4201-B3D7-A83E8AD748FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E8CBBA7-9B8E-4201-B3D7-A83E8AD748FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D70CB18-DAA5-4B0E-9A32-5F3A7239D3FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D70CB18-DAA5-4B0E-9A32-5F3A7239D3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D70CB18-DAA5-4B0E-9A32-5F3A7239D3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D70CB18-DAA5-4B0E-9A32-5F3A7239D3FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
