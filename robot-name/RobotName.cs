@@ -28,7 +28,7 @@ public class Robot
         var randomName = string.Empty;
         do
         {
-            randomName = $"{RandomString()}{RandomNumber().ToString(NumberFormat)}";
+            randomName = RandomString() + RandomNumber().ToString(NumberFormat);
         } while (usedNames.Contains(randomName));
 
         usedNames.Add(randomName);
