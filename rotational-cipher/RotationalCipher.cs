@@ -32,6 +32,7 @@ public static class RotationalCipher
         return output;
     }
 
+    // this method exists for the cases when dividend % divisor returns negative number
     private static int Mod(int dividend, int divisor)
     {
         if (divisor == 0)
