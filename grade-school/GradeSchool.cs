@@ -5,7 +5,7 @@ using System.Linq;
 public class GradeSchool
 {
     private const int FirstGrade = 1;
-    private const int EigthGrade = 8;
+    private const int EightGrade = 8;
     private readonly IList<Student> Students = new List<Student>();
 
     public void Add(string student, int grade)
@@ -15,7 +15,7 @@ public class GradeSchool
             throw new ArgumentException("student must be a valid string", nameof(student));
         }
 
-        if (grade < FirstGrade || grade > EigthGrade)
+        if (grade < FirstGrade || grade > EightGrade)
         {
             throw new ArgumentException("grade must be between 1 and 8 inclusive", nameof(grade));
         }
